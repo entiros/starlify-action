@@ -1,0 +1,9 @@
+{
+  "system": {
+    "uuid": "1234567890",
+    "services": {
+      "name": "Service 1",
+      "uri": "http://localhost:8080"
+    }
+  }
+}

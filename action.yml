@@ -1,23 +1,28 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Starlify Action'
+description: 'A GitHub Action that connects your repo to Starlify'
+author: 'Entiros AB'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: 'heart'
-  color: 'red'
+  icon: 'star'
+  color: 'green'
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  api_key:
+    description: 'Your Starlify API key'
     required: true
-    default: '1000'
+  workspace_id:
+    description: 'Your Starlify workspace ID'
+    required: true
+  github_token:
+    description: 'Your GitHub token'
+    required: true
 
 # Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  url:
+    description: 'The URL of the created Starlify references'
 
 runs:
   using: node20
