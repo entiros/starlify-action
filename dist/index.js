@@ -51434,15 +51434,17 @@ const github_1 = __importDefault(__nccwpck_require__(5438));
  */
 async function run() {
     try {
-        const apiToken = core_1.default.getInput('api_key');
-        const workspaceId = core_1.default.getInput('workspace_id');
+        //const apiToken = core.getInput('api_key')
+        //const workspaceId = core.getInput('workspace_id')
         const ghToken = core_1.default.getInput('github_token');
         // Get the context of the current workflow run
         const context = github_1.default.context;
-        core_1.default.debug(`workspaceId: ${workspaceId}`);
-        core_1.default.debug(`apiToken: ${apiToken}`);
+        core_1.default.debug(`context: ${JSON.stringify(context)}`);
+        //core.debug(`workspaceId: ${workspaceId}`)
+        //core.debug(`apiToken: ${apiToken}`)
         // Get the pull request number from the context
         const pullRequestNumber = context.payload.pull_request?.number;
+        core_1.default.debug(`pullRequestNumber: ${pullRequestNumber}`);
         // Add a comment to the pull request
         const octokit = github_1.default.getOctokit(ghToken);
         await octokit.rest.issues.createComment({
@@ -51453,8 +51455,7 @@ async function run() {
     }
     catch (error) {
         // Fail the workflow run if an error occurs
-        if (error instanceof Error)
-            core_1.default.setFailed(error.message);
+        core_1.default.setFailed('failed');
     }
 }
 exports.run = run;
