@@ -7,15 +7,15 @@ import github from '@actions/github'
  */
 export async function run(): Promise<void> {
   try {
-    const apiToken = core.getInput('api_key')
-    const workspaceId = core.getInput('workspace_id')
+    //const apiToken = core.getInput('api_key')
+    //const workspaceId = core.getInput('workspace_id')
     const ghToken = core.getInput('github_token')
 
     // Get the context of the current workflow run
     const context = github.context
 
-    core.debug(`workspaceId: ${workspaceId}`)
-    core.debug(`apiToken: ${apiToken}`)
+    //core.debug(`workspaceId: ${workspaceId}`)
+    //core.debug(`apiToken: ${apiToken}`)
 
     // Get the pull request number from the context
     const pullRequestNumber = context.payload.pull_request?.number
