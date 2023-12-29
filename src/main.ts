@@ -1,6 +1,5 @@
 import core from '@actions/core'
 import github from '@actions/github'
-import { wait } from './wait'
 
 /**
  * The main function for the action.
@@ -14,6 +13,9 @@ export async function run(): Promise<void> {
 
     // Get the context of the current workflow run
     const context = github.context
+
+    core.debug(`workspaceId: ${workspaceId}`)
+    core.debug(`apiToken: ${apiToken}`)
 
     // Get the pull request number from the context
     const pullRequestNumber = context.payload.pull_request?.number
